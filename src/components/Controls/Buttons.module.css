@@ -1,0 +1,16 @@
+.Controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+@media (max-width: 499px){
+    .Controls {
+        flex-direction: column;
+        margin-top: 15px;
+    
+    }
+
+}

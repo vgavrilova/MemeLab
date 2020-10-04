@@ -1,0 +1,52 @@
+.btn {
+    width: 170px;
+    padding: 15px;
+    margin: 30px 15px;
+    background-color: rgb(253, 165, 0);
+    font-size: 1.2em;
+    font-family: inherit;
+    border: none;
+    color: white;
+    box-sizing: border-box;
+    cursor: pointer;
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+}
+.btn::after {
+    content: "";
+    background: #f5c276;
+    position: absolute;
+    z-index: -1;
+    padding: 0.85em 0.75em;
+    display: block;
+    left: 0;
+    right: 0;
+    top: -100%;
+    bottom: 100%;
+    transition: all 0.35s;
+  }
+
+.btn:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.35s;
+}
+
+.btn:hover {
+    background-color: rgb(251, 176, 0);
+}
+
+@media (max-width: 499px){
+    .btn{
+        width: 55%;
+        margin-bottom: 5px;
+        font-size: 1em;
+        padding: 5px;
+        margin: 10px;
+    
+    }
+
+}

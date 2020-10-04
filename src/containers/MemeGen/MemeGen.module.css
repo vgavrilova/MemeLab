@@ -1,0 +1,59 @@
+.Meme {
+    width: 40%;
+    margin: auto;
+    position: relative;
+
+}
+
+.Meme img {
+    display: block;
+    margin: auto;
+    width: 70%;
+    -webkit-box-shadow: 10px 10px 30px 2px rgba(0,0,0,0.39);
+    -moz-box-shadow: 10px 10px 30px 2px rgba(0,0,0,0.39);
+    box-shadow: 10px 10px 30px 2px rgba(0,0,0,0.39);
+}
+ .Arrows {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 3em;
+    opacity: .5;
+    cursor: pointer;
+    height: 50%;
+    width: 10%;
+ }
+
+ .Arrows:hover {
+     background-color: rgba(0, 0, 0, 0.698);
+     color: white;
+ }
+
+.arrowLeft {
+
+    right: 100%;
+}
+.arrowRight {
+
+    left: 100%;
+}
+
+.InputFields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+
+
+@media (max-width: 499px){
+    .Meme {
+        width: 75%;
+
+    }
+
+}
