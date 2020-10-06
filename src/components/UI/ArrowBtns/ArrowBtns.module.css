@@ -1,0 +1,26 @@
+.Arrows {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 3em;
+    opacity: .5;
+    cursor: pointer;
+    height: 50%;
+    width: 10%;
+ }
+
+ .Arrows:hover {
+     background-color: rgba(0, 0, 0, 0.698);
+     color: white;
+ }
+
+.arrowLeft {
+
+    right: 100%;
+}
+.arrowRight {
+
+    left: 100%;
+}

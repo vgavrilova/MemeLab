@@ -13,7 +13,9 @@ const buttons = (props) => {
                 onClick={props.showTemplates}>
                 Templates
             </button>
-            <button className={[style.btn, style.GenBtn].join(' ')}>Generate</button>
+            <button 
+                className={[style.btn, style.GenBtn].join(' ')} 
+                onClick={props.generate}>Generate</button>
         </div>
     );
 

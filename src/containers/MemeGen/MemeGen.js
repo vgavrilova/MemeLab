@@ -5,6 +5,7 @@ import Buttons from '../../components/Controls/Buttons';
 import Input from '../../components/UI/Input/Input';
 import Modal from '../../components/UI/Modal/Modal';
 import MemeGallery from '../../components/MemeGallery/MemeGallery';
+import ArrowBtns from '../../components/UI/ArrowBtns/ArrowBtns';
 
 
 const MemeGen = (props) => {
@@ -31,13 +32,17 @@ const MemeGen = (props) => {
           const response = await fetch('https://api.imgflip.com/get_memes');
           const data = await response.json();
           const fetchedMemes = data.data.memes;
-          console.log(fetchedMemes);
+          //console.log(fetchedMemes);
           shuffleMemes(fetchedMemes);
           setMemes(fetchedMemes);
       
         }
 
     const showNext = () => {
+        if(memeIndex === 99){
+            alert('Unable to skip forwards!');
+            return;
+        }
         const index = memeIndex + 1;
         setMemeIndex(index);
     }
@@ -45,6 +50,7 @@ const MemeGen = (props) => {
     const showPrevious = () => {
         // prevent changing index to the negative number
         if(memeIndex === 0){
+            alert('Unable to skip backwards!');
             return;
         }
         const index = memeIndex - 1;
@@ -89,14 +95,42 @@ const MemeGen = (props) => {
        // console.log(captions);
 
     }
+
+    const generateMeme = () => {
+       const meme = memes[memeIndex];
+       const formData = new FormData();  
+
+       formData.append('username', 'vallleriel');
+       formData.append('password', 'Amp789Fn');
+       formData.append('template_id', meme.id);
+
+       captions.forEach((cap, index) => {
+           formData.append(`boxes[${index}][text]`, cap);
+       });
+
+       const postMeme = async () => {
+            const postData = await fetch('https://api.imgflip.com/caption_image', {
+            method: 'POST',
+            body: formData
+            });
+            const response = await postData.json();
+            console.log(response);
+            
+       }
+       postMeme();
+
+    }
        
     const renderInputs = captions.map((caption, index) => 
             <Input key={`Caption${index}`} changed ={filledCaption} index={index}/>
         );
     
 
+
+
     return (
         <div className={style.Wrapper}>
+            <h1>Meme Generator</h1>
             <Modal show={allTemplates} closeTemplates={closeTemplates}>
                 <MemeGallery 
                     memes={memes} 
@@ -105,23 +139,13 @@ const MemeGen = (props) => {
                     />
             </Modal>
              <div className={style.Meme}>
-            
-                <button 
-                    className={[style.arrowLeft, style.Arrows].join(' ')}
-                    onClick={showPrevious}>
-                        <i className="fas fa-angle-left"></i>
-                </button>
-                <button 
-                    className={[style.arrowRight, style.Arrows].join(' ')}
-                    onClick={showNext}>
-                        <i className="fas fa-angle-right"></i>
-                </button>
+                <ArrowBtns showNext={showNext} showPrevious={showPrevious}/>
                 
                 {memes.length ? <img src={memes[memeIndex].url} alt='meme'></img> : null}
-                
-           
+        
             </div>
-            <Buttons showTemplates={showTemplates}/>
+
+            <Buttons showTemplates={showTemplates} generate={generateMeme}/>
             <div className={style.InputFields}>
                 { renderInputs }
             </div>
