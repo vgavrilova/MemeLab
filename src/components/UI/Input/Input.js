@@ -7,7 +7,8 @@ const input = (props) => (
     <input 
         className={style.Input}
         type="text" 
-        placeholder="Type caption">
+        placeholder="Type caption"
+        onChange={event => props.changed(event, props.index)}>
     </input>
 );
 

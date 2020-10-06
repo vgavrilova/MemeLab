@@ -1,0 +1,33 @@
+
+.Headline {
+    text-align: center;
+    margin-top: 30px;
+}
+.Gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    z-index: 100;
+
+}
+
+.Gallery img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    overflow: hidden;
+    margin: 30px 20px;
+    border: 7px solid rgb(134, 134, 134);
+    cursor: pointer;
+}
+
+@media (max-width: 499px){
+    .Gallery img {
+        width: 55%;
+        height: 100px;
+        margin: 10px;
+        border: 4px solid rgb(134, 134, 134);
+        
+    }
+}
