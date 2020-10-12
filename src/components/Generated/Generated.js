@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import Aux from '../../hoc/Aux';
 import Loader from '../UI/Loader/Loader';
+import Share from '../UI/Share/Share';
 
 import style from './Generated.module.css';
 
@@ -41,20 +42,19 @@ const Generated = (props) => {
             (everything after && will be rendered) */}
             {urlImg ? 
                 <Aux>
+                    <button
+                            className={[style.Button, style.MakeMemes].join(' ')}
+                            onClick={() => {history.push('/create_meme')}}>Make Memes
+                    </button>
                     <img className={style.Generated} src={urlImg} alt="generated" />
-                    
+                        <Share link={urlImg}/>
                         <a
                             className={style.Button}
                             href={urlImg}
                             download
                             onClick={e => downloadFile(e)}>Download Meme
                         </a>
-                        <button
-                            className={[style.Button, style.MakeMemes].join(' ')}
-                            onClick={() => {history.push('/create_meme')}}>Make Memes
-                        </button>
-                        
-                    
+
                 </Aux>
                 : <Loader />
                 

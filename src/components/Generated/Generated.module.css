@@ -23,7 +23,7 @@
     display: block;
     width: 250px;
     padding: 15px;
-    margin: 30px 10px 5px 10px;
+    margin: 20px 10px 20px 10px;
     background-color: rgb(253, 165, 0);
     font-size: 1.2em;
     font-family: inherit;
@@ -64,19 +64,21 @@
 
 .MakeMemes{
     background-color: rgb(253, 122, 0);
+    margin-bottom: 1.5em;
+    
 }
 
-
-
-
 @media (max-width: 499px){
+    .Wrapper {
+        margin-top: 0;
+    }
     .Generated {
         width: 70%;
     }
     .Button {
         width: 50%;
         padding: 15px;
-        margin: 20px 20px 0 20px;
+        margin: 20px 20px 20px 20px;
         font-size: 0.8em;
     }
 }

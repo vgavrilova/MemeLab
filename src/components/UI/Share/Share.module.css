@@ -1,0 +1,15 @@
+.Icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 20%;
+    margin-top: 40px;
+}
+
+@media (max-width: 499px){
+    .Icons {
+        width: 70%;
+        margin-top: 30px;
+    }
+}
