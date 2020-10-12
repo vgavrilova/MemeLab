@@ -1,0 +1,82 @@
+.Wrapper {
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Generated {
+    -webkit-box-shadow: 10px 10px 30px 2px rgba(0,0,0,0.39);
+    -moz-box-shadow: 10px 10px 30px 2px rgba(0,0,0,0.39);
+    box-shadow: 10px 10px 30px 2px rgba(0, 0, 0, 0.466);
+}
+
+
+.Button {
+    appearance: button;
+    -moz-appearance: button;
+    -webkit-appearance: button;
+    text-decoration: none; 
+    text-align: center;
+    display: block;
+    width: 250px;
+    padding: 15px;
+    margin: 30px 10px 5px 10px;
+    background-color: rgb(253, 165, 0);
+    font-size: 1.2em;
+    font-family: inherit;
+    border: none;
+    color: white;
+    box-sizing: border-box;
+    cursor: pointer;
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.Button::after {
+    content: "";
+    background: #f5c276;
+    position: absolute;
+    z-index: -1;
+    padding: 0.85em 0.75em;
+    display: block;
+    left: 0;
+    right: 0;
+    top: -100%;
+    bottom: 100%;
+    transition: all 0.35s;
+  }
+
+.Button:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.35s;
+}
+
+.Button:hover {
+    background-color: rgb(251, 176, 0);
+}
+
+.MakeMemes{
+    background-color: rgb(253, 122, 0);
+}
+
+
+
+
+@media (max-width: 499px){
+    .Generated {
+        width: 70%;
+    }
+    .Button {
+        width: 50%;
+        padding: 15px;
+        margin: 20px 20px 0 20px;
+        font-size: 0.8em;
+    }
+}

@@ -7,6 +7,7 @@ Hello everyone!
 
 Recently I#ve decided to make some untrivial projects of my own made with React and I came up with the idea of a meme generator. 
 
+
 In this app I use an API given by [ImgFlip](https://imgflip.com/api), which renders 100 most popular memes. These are shown in random order on the main page of my SPA. The user can either choose one of them from the gallery or skip forwards/backwards. 
 
 

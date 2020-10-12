@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import style from './MemeGen.module.css';
 import Buttons from '../../components/Controls/Buttons';
@@ -6,6 +7,7 @@ import Input from '../../components/UI/Input/Input';
 import Modal from '../../components/UI/Modal/Modal';
 import MemeGallery from '../../components/MemeGallery/MemeGallery';
 import ArrowBtns from '../../components/UI/ArrowBtns/ArrowBtns';
+import Loader from '../../components/UI/Loader/Loader';
 
 
 const MemeGen = (props) => {
@@ -14,6 +16,9 @@ const MemeGen = (props) => {
 
     const [allTemplates, setAllTemplates] = useState(false);
     const [captions, setCaptions] = useState([]);
+
+    const history = useHistory();
+
 
     useEffect(() => {
             fetchMemes();
@@ -114,12 +119,17 @@ const MemeGen = (props) => {
             body: formData
             });
             const response = await postData.json();
-            console.log(response);
+            console.log(response.data.url);
+            history.push(`/generated_meme?url=${response.data.url}`);
+     
             
        }
        postMeme();
+       
 
     }
+
+    
        
     const renderInputs = captions.map((caption, index) => 
             <Input key={`Caption${index}`} changed ={filledCaption} index={index}/>
@@ -141,7 +151,7 @@ const MemeGen = (props) => {
              <div className={style.Meme}>
                 <ArrowBtns showNext={showNext} showPrevious={showPrevious}/>
                 
-                {memes.length ? <img src={memes[memeIndex].url} alt='meme'></img> : null}
+                {memes.length ? <img src={memes[memeIndex].url} alt='meme'></img> : <Loader />}
         
             </div>
 

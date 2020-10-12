@@ -22,6 +22,12 @@
     cursor: pointer;
 }
 
+.Gallery img:hover {
+    -webkit-box-shadow: 3px 4px 12px 0px rgba(0,0,0,0.61);
+    -moz-box-shadow: 3px 4px 12px 0px rgba(0,0,0,0.61);
+    box-shadow: 3px 4px 12px 0px rgba(0,0,0,0.61);
+}
+
 @media (max-width: 499px){
     .Gallery img {
         width: 55%;
