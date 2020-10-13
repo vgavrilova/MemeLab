@@ -1,7 +1,6 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import Aux from '../../hoc/Aux';
-import Loader from '../UI/Loader/Loader';
 import Share from '../UI/Share/Share';
 
 import style from './Generated.module.css';
@@ -40,7 +39,7 @@ const Generated = (props) => {
         <div className={style.Wrapper}>
             {/* check whether the url exists and render the image
             (everything after && will be rendered) */}
-            {urlImg ? 
+            {urlImg &&
                 <Aux>
                     <button
                             className={[style.Button, style.MakeMemes].join(' ')}
@@ -56,7 +55,7 @@ const Generated = (props) => {
                         </a>
 
                 </Aux>
-                : <Loader />
+                
                 
                 }
         </div>

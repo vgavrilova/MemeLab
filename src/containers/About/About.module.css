@@ -1,0 +1,85 @@
+.Memes {
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 85%;
+}
+
+.Meme {
+    display: block;
+    width: 15%;
+    height: 200px;
+    object-fit: cover;
+    overflow: hidden;
+    margin: 20px 30px;
+    cursor: pointer;
+    border: 7px solid rgb(134, 134, 134);
+    box-sizing: border-box;
+
+}
+
+.Meme:hover {
+    border: 7px solid rgb(172, 172, 172);
+    -webkit-box-shadow: 3px 4px 12px 0px rgba(0,0,0,0.61);
+    -moz-box-shadow: 3px 4px 12px 0px rgba(0,0,0,0.61);
+    box-shadow: 3px 4px 12px 0px rgba(0,0,0,0.61);
+}
+
+.Title {
+    display: block;
+    text-align: center;
+    margin: 30px;
+}
+
+.Head {
+    font-size: 2.5em;
+
+}
+
+h3 {
+
+    font-size: 1.6em;
+}
+
+.Para {
+    padding: 40px 20px;
+    background-color: white;
+    margin: auto;
+    width: 70%;
+    text-align: center;
+    font-size: 1.2em;
+    position:relative;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+
+}
+.Para:before, .Para:after {
+    content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:50%;
+    bottom:0;
+    left:10px;
+    right:10px;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+}
+.Para:after{
+    right:10px;
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg);
+    -moz-transform:skew(8deg) rotate(3deg);
+    -ms-transform:skew(8deg) rotate(3deg);
+    -o-transform:skew(8deg) rotate(3deg);
+    transform:skew(8deg) rotate(3deg);
+}
+span {
+    margin-left: 1em;
+}

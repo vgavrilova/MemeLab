@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 import style from './MemeGen.module.css';
 import Buttons from '../../components/Controls/Buttons';
@@ -16,21 +16,29 @@ const MemeGen = (props) => {
 
     const [allTemplates, setAllTemplates] = useState(false);
     const [captions, setCaptions] = useState([]);
+    const [genBtn, setGenBtn] = useState(true);
 
     const history = useHistory();
+    const location = useLocation();
+    const indexMeme = new URLSearchParams(location.search).get('index');
 
 
     useEffect(() => {
+            indexMeme && setMemeIndex(indexMeme);
             fetchMemes();
             
         }, []);
 
     useEffect(() => {
         if(memes.length){
+            // initialize an arr of the length of the box count
+            // fill every entry with ''
             setCaptions(Array(memes[memeIndex].box_count).fill(''));
         }
 
     }, [memeIndex, memes]);
+
+
 
       
     const fetchMemes = async () => {
@@ -38,9 +46,10 @@ const MemeGen = (props) => {
           const data = await response.json();
           const fetchedMemes = data.data.memes;
           //console.log(fetchedMemes);
-          shuffleMemes(fetchedMemes);
+         // shuffleMemes(fetchedMemes);
+         
           setMemes(fetchedMemes);
-      
+
         }
 
     const showNext = () => {
@@ -62,13 +71,13 @@ const MemeGen = (props) => {
         setMemeIndex(index);
     }  
 
-    const shuffleMemes = (array) => {
+/*     const shuffleMemes = (array) => {
         // Randomize memes while loading the page
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
-    };
+    }; */
 
     const showTemplates = () => {
         setAllTemplates(true);
@@ -80,6 +89,7 @@ const MemeGen = (props) => {
     }
 
     const filledCaption = (event, index) => {
+        
         // grab a text onchange
         const caption = event.target.value || '';
 
@@ -96,6 +106,8 @@ const MemeGen = (props) => {
                 }
             })
         );
+
+        caption !== '' ? setGenBtn(false) : setGenBtn(true);
 
        // console.log(captions);
 
@@ -134,7 +146,8 @@ const MemeGen = (props) => {
     const renderInputs = captions.map((caption, index) => 
             <Input key={`Caption${index}`} changed ={filledCaption} index={index}/>
         );
-    
+
+   
 
 
 
@@ -155,7 +168,9 @@ const MemeGen = (props) => {
         
             </div>
 
-            <Buttons showTemplates={showTemplates} generate={generateMeme}/>
+            <Buttons showTemplates={showTemplates} 
+                generate={generateMeme} 
+                disabled={genBtn}/>
             <div className={style.InputFields}>
                 { renderInputs }
             </div>

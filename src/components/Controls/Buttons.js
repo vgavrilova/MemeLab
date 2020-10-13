@@ -15,7 +15,8 @@ const buttons = (props) => {
             </button>
             <button 
                 className={[style.btn, style.GenBtn].join(' ')} 
-                onClick={props.generate}>Generate</button>
+                onClick={props.generate}
+                disabled={props.disabled}>Generate</button>
         </div>
     );
 

@@ -46,9 +46,18 @@
     background-color: rgb(251, 176, 0);
 }
 
+
+
 .GenBtn {
     background-color: rgb(253, 122, 0);
 }
+.GenBtn:disabled,
+.GenBtn[disabled]{
+  background-color: #b4b3b3;
+  color: #666666;
+  pointer-events: none;
+}
+
 
 
 @media (max-width: 499px){
