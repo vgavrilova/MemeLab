@@ -83,3 +83,22 @@ h3 {
 span {
     margin-left: 1em;
 }
+
+@media (max-width: 499px) {
+    .Memes {
+        width: 100%;
+    }
+    .Meme {
+        width: 40%;
+        height: 150px;
+        margin: 10px 15px;
+        border: 5px solid rgb(134, 134, 134);
+    
+    }
+    .Para {
+        padding: 20px 10px;
+        width: 80%;
+        font-size: 0.8em;
+    
+    }
+}

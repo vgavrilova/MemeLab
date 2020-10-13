@@ -41,7 +41,7 @@ const About = (props) => {
         <div className={style.Para}>
         <p >This is a free Meme Generator which offers users 100 most popular memes to be creative with. </p>
         <p>Just press the button and start making memes!</p>
-        <button className={btnStyle.btn} style={{width: '30%'}} onClick={start}>Get started 
+        <button className={btnStyle.btn} style={{width: '40%'}} onClick={start}>Get started 
         <span><i className="fas fa-arrow-right"></i></span></button>
         </div>
 

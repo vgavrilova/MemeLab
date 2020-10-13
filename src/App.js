@@ -4,7 +4,7 @@ import MemeGen from './containers/MemeGen/MemeGen';
 import Generated from './components/Generated/Generated';
 import About from './containers/About/About';
 
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import './App.css';
 
@@ -19,7 +19,7 @@ const App = () => {
             <Route path="/create_meme" component={MemeGen}></Route>
             <Route path="/about" component={About}></Route>
             <Route path="/generated_meme" component={Generated}></Route>
-            <Route render={() => <h1>Page not found</h1>}></Route>
+            <Redirect to="/about"></Redirect>
           </Switch>
           
         </NavBar>
