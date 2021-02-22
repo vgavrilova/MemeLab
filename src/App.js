@@ -1,16 +1,14 @@
-import React from 'react';
-import NavBar from './hoc/NavBar/NavBar';
-import MemeGen from './containers/MemeGen/MemeGen';
-import Generated from './components/Generated/Generated';
-import About from './containers/About/About';
+import React from "react";
+import NavBar from "./hoc/NavBar/NavBar";
+import MemeGen from "./containers/MemeGen/MemeGen";
+import Generated from "./components/Generated/Generated";
+import About from "./containers/About/About";
 
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
-import './App.css';
+import "./App.css";
 
 const App = () => {
-  
-
   return (
     <BrowserRouter>
       <div className="App">
@@ -21,12 +19,10 @@ const App = () => {
             <Route path="/generated_meme" component={Generated}></Route>
             <Redirect to="/about"></Redirect>
           </Switch>
-          
         </NavBar>
-
       </div>
-      </BrowserRouter>  
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
